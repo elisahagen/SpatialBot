@@ -1,0 +1,22 @@
+{
+  // Name shown in VS Code status bar
+  "name": "SpatialBot-Dev",
+
+  // Re-use the pre-built GPU image
+  "image": "russellrobin/bunny:latest",
+
+  // Pass GPU through
+  "runArgs": ["--gpus", "all"],
+
+  // Mount the repo into /workspace
+  "workspaceFolder": "/workspaces/SpatialBot",
+
+  // Extensions installed automatically
+  "extensions": [
+    "ms-python.python",
+    "ms-toolsai.jupyter"
+  ],
+
+  // Post-install commands (run once after container build)
+  "postCreateCommand": "pip install --upgrade transformers && pip uninstall -y bunny && pip install -e . && git config --global user.email \"elisa.hagensieker@sereact.ai\" && git config --global user.name \"elisahagen\""
+}
